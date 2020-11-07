@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link id="favicon" rel="icon" href="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon%20(1).png?v=1604780268903" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,14 +11,136 @@
 
  
     <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="https://use.typekit.net/eoo0ksg.css">
     <link rel="stylesheet" href="/style.css">
     
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="/client.js" defer></script>
   </head>
+  
   <body>
-    <button id="testButton">
-      Run C++
-    </button>
+    <!-- WELCOME SCREEN -->
+    <div id="welcome-screen" class="screen">
+      <image src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon%20(1).png?v=1604780268903"></image>
+      <h1 id="welcome">
+        Six Feet
+      </h1>
+      <h2 id="sub-welcome">
+        your health companion app
+      </h2>
+      <button id="login-button" class="sixft-button">
+        Login
+      </button>
+      <br>
+      <button id="signup-button" class="sixft-button">
+        Sign Up
+      </button>
+    </div>
+    <!-- End of WELCOME SCREEN -->
+    
+    <!-- LOGIN SCREEN -->
+    <div id="login-screen" class="screen">
+      <h1 id="login-header">
+        Login
+      </h1>
+      <div id="login-form">
+        <div class="row">
+          <span class="field">Email: </span><input id="login-email" type="text" class="field" autocomplete="off" placeholder="Enter your email">
+        </div>
+        
+        <div class="row">
+          <span class="field">Password: </span><input id="login-password" type="text" class="field" autocomplete="off" placeholder="Enter your password">
+        </div>
+      
+      </div>
+      <button id="submit-login-button" class="sixft-button">
+        Login
+      </button>
+    </div>
+    <!-- End of LOGIN SCREEN -->
+    
+    <!--  SIGNUP SCREEN -->
+    <div id="signup-screen" class="screen">
+      <h1 id="signup-header">
+        Sign Up
+      </h1>
+      <div id="signup-form">
+        <div class="row">
+          <span class="field">Email: </span><input id="signup-email" type="text" class="field" autocomplete="off" placeholder="example@example.com">
+        </div>
+        
+        <div class="row">
+          <span class ="field">Display name: </span><input id="signup-display" type="text" class="field" autocomplete="off" placeholder="How other users will identify you">
+        </div>
+        
+        <div class="row">
+          <span class ="field">Language: </span>
+          <select id="signup-language">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="zh">Chinese</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+            <option value="ja">Japanese</option>
+            <option value="it">Italian</option>
+            <option value="sv">Swedish</option>
+          </select>
+        </div>
+        
+        <div class="row">
+          <span class="field">Password: </span><input id="signup-password" type="text" class="field" autocomplete="off" placeholder="Enter a strong password">
+        </div>
+        
+        <div class="row">
+          <span class="field">Confirm password: </span><input id="signup-confirm" type="text" class ="field" autocomplete="off" placeholder="Confirm password">
+        </div>
+      </div>
+      <button id="submit-signup-button" class="sixft-button">
+          Sign Up
+      </button>
+    </div>
+    <!-- End of SIGNUP SCREEN -->
+    
+    <!--- MAIN SCREEN --->
+    <div id="main-screen" class ="screen">
+      <div id="content">
+        <div id="main-header">
+          <div id="home-button">
+            <img class="home-img" src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon%20(1).png?v=1604780268903">
+          </div>
+          <div id="profile-button">
+            Profile
+          </div>
+          <div id="friends-button">
+            Friends
+          </div>
+          <div id="interactions-button">
+            Interactions
+          </div>
+        </div>
+        <div id="main-bottom">
+          <div id="main-center-content">
+            <!-- HOME PAGE -->
+            <div id="home-page" class="page">
+                <img id="big-green-button" src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2Fbig-green-button.png?v=1604785131273">
+                <img id="big-red-button" src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2Fbig-red-button.png?v=1604784796237">
+            </div>
+            <!-- End of HOME PAGE -->
+            <div id="profile-page" class="page">
+              
+            </div>
+            <div id="friends-page" class="page">
+              
+            </div>
+            <div id="interactions-page" class="page">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <!-- End of MAIN SCREEN -->
   </body>
 </html>

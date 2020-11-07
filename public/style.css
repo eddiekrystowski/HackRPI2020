@@ -8,12 +8,332 @@ body {
   display:flex;
   justify-content:center;
   align-items:center;
+  overflow:hidden;
 }
 
-button {
+#welcome-screen  > button {
   font-size:5vw
 }
 
 button:hover{
   cursor:pointer;
+}
+
+
+
+.screen {
+  width:100%;
+  height:100%;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+}
+
+.row {
+  display:flex;
+  flex-direction:row;
+}
+
+.right {
+  align-items:flex-end;
+}
+
+.home-img {
+  width: 50%;
+}
+
+
+
+.sixft-button {
+  background: url('https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2Fsign-up-button%20(1).png?v=1604771068176');
+  outline:none;
+  border:none;
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  padding:1%;
+}
+
+
+.sixft-button {
+    -webkit-filter: brightness(100%);
+}
+
+.sixft-button:hover {
+    -webkit-filter: brightness(70%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+
+
+/* ---------------------------
+-------- WELCOME SCREEN --------
+------------------------------ */
+
+#welcome-screen {
+  font-family: cooper-black-std, serif;
+  font-weight: 400;
+  font-style: normal;
+  color: RGB(43, 54, 105);
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  width:100%;
+  height:100%;
+  padding:5%;
+  background: url('https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2Fwelcome-background.png?v=1604781608129');
+  background-size:cover;
+  /*background-color:RGB(142, 199, 245);*/
+}
+
+#welcome {
+  font-size: 8vw;
+  margin: 0.1%;
+}
+
+#sub-welcome {
+  font-size: 2vw;
+  margin:0%;
+}
+
+
+#signup-button {
+  color: RGB(43, 54, 105);
+  font-size:3vw;
+  padding:1%;
+}
+
+#login-button {
+  color: RGB(43, 54, 105);
+  font-size:3vw;
+  padding: 1%;
+}
+
+
+
+
+/* ---------------------------
+-------- LOGIN SCREEN --------
+------------------------------ */
+
+#login-screen {
+  display: none;
+  align-items:center;
+  flex-direction:column;
+  width:100%;
+  height:100%;
+  background-color:RGB(235, 245, 255);
+}
+
+#login-header {
+  color: RGB(43, 54, 105);
+  font-size:8vw;
+}
+
+.field {
+  font-size: 2vw;
+  margin:0px
+}
+
+input.field {
+  padding:1%;
+}
+
+#submit-login-button {
+  color: RGB(43, 54, 105);
+  font-size:3vw;
+  padding:1%;
+}
+
+#login-form {
+  background-color: none;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  justify-content:space-evenly;
+  height:20%;
+}
+
+
+/* ---------------------------
+-------- SIGNUP SCREEN --------
+------------------------------ */
+
+#signup-screen {
+  display: none;
+  align-items:center;
+  flex-direction:column;
+  width:100%;
+  height:100%;
+  background-color:RGB(235, 245, 255);
+}
+
+#signup-header {
+  font-size:8vw;
+}
+
+#signup-form {
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  justify-content:space-evenly;
+  height:40%;
+}
+
+#submit-signup-button {
+  font-size:3vw;
+  padding:1%;
+}
+
+#signup-language {
+  font-size:1vw;
+  width:100%;
+}
+
+
+
+
+
+
+
+/* ---------------------------
+-------- MAIN SCREEN ---------
+------------------------------ */
+
+
+#main-screen {
+  display: none;
+  align-items:center;
+  flex-direction:column;
+  width:100%;
+  height:100%;
+  background-color:lightgreen;
+}
+
+
+#main-screen > #content {
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  height:100%;
+}
+
+#main-header {
+  display:flex;
+  width:100%;
+  height:20%;
+  position:relative;
+  top:0;
+  left:0;
+  background-color:RGB(211, 230, 250);
+  border-bottom: 2px solid RGB(174, 196, 219);
+  flex-direction:row;
+  justify-content:flex-start;
+  align-items:flex-start;
+  padding-left: 2%;
+}
+
+#main-header > div {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size: 3vw;
+  margin-right: 2%;
+  margin-top:0px;
+  margin-bottom:0px;
+  height:100%;
+  padding-left:2%;
+  padding-right:2%;
+}
+
+#main-header > div:hover {
+  background-color: RGB(199, 218, 237);
+  cursor:pointer;
+}
+
+#main-bottom {
+  display:flex;
+  flex-direction: row;
+  width:100%;
+  height:90%;
+  background-color:RGB(211, 230, 250)
+}
+
+#main-left-menu {
+  display:flex;
+  flex-direction: column;
+  width:20%;
+  height:100%;
+  background-color: RGB(211, 230, 250);
+  border-right: 2px solid RGB(147, 167, 189);
+}
+
+
+#main-center-content {
+  display:flex;
+  flex-direction:column;
+  width: 100%;
+  height: 100%;
+  
+  background-color: RGB(235, 245, 255);
+}
+
+
+
+
+
+
+
+
+/* ---------------------------
+-------- HOME PAGE ---------
+------------------------------ */
+
+#home-page {
+  display:flex;
+  flex-direction:row;
+  justify-content:space-evenly;
+  align-items:center;
+  width:100%;
+  height:100%;
+  font-size:2vw;
+}
+
+
+#big-green-button, #big-red-button {
+  margin:10%;
+  width:100%;
+  height:60%;
+  -webkit-filter: brightness(100%);
+}
+
+
+#big-red-button:hover, #big-green-button:hover {
+  cursor:pointer;
+  -webkit-filter: brightness(70%);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+
+
+#profile-page {
+  display:none;
+}
+
+#friends-page {
+  display:none;
+}
+
+#interactions-page {
+  display:none;
 }
