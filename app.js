@@ -56,6 +56,7 @@ function readJson(filePath, callback) {
 }
 
 
+
 readJson('test.json', function(error, data){
   if(error){ 
     console.log(error)
