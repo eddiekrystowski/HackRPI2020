@@ -1,0 +1,19 @@
+html,body{
+  margin:0px;
+  padding:0px;
+  height:100%;
+}
+
+body {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+button {
+  font-size:5vw
+}
+
+button:hover{
+  cursor:pointer;
+}
