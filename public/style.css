@@ -202,6 +202,7 @@ input.field {
 }
 
 #signup-header {
+  color: RGB(43, 54, 105);
   font-size:8vw;
 }
 
@@ -231,6 +232,11 @@ input.field {
   width:63%;
   margin-left:2%;
   
+}
+
+
+#signup-notice {
+  color: RGB(43, 54, 105);
 }
 
 
@@ -369,6 +375,7 @@ input.field {
   width:100%;
   height:100%;
   font-size:2vw;
+  overflow-y:scroll;
 }
 
 #profile-top {
@@ -376,16 +383,27 @@ input.field {
   flex-direction:column;
 }
 
+.small {
+  font-size: 2vw !important;
+}
+
+
 #profile-user-email {
-  font-size: 4vw;
+  font-size: 1.5vw;
+  margin-left:5%;
+  color:black;
 }
 
 #profile-user-language {
-  font-size: 4vw;
+  font-size: 1.5vw;
+  margin-left:5%;
+  color:black;
 }
 
 #profile-user-status {
-  font-size:4vw;
+  font-size:1.5vw;
+  margin-left:5%;
+  color:black;
 }
 
 
@@ -491,6 +509,7 @@ input.field {
 }
 
 #friends-right {
+  color: RGB(43, 54, 105);
   display:flex;
   flex-direction:column;
   width:50%;
@@ -503,7 +522,8 @@ input.field {
   display:flex;
   flex-direction:column;
   width:100%;
-  height:100%;
+  height:80%;
+  overflow-y:scroll;
 }
 
 .friend {
@@ -564,13 +584,52 @@ input.field {
   color: RGB(43, 54, 105);
   display: flex;
   flex-direction: row;
+  align-items:center;
+  justify-content:space-evenly;
+  width:100%;
 }
 
 
 #interactions-history-div {
   color: RGB(43, 54, 105);
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items:center;
+  width:100%;
+  height:100%;
+  
+}
+
+#interactions-history-content {
+  display:flex;
+  flex-direction: column;
+  width:100%;
+  height:80%;
+  overflow-y:scroll;
+}
+
+#interactions-history-content > hr {
+  width:80%;
+}
+
+.interaction {
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  font-size:2vw;
+}
+
+.i-color {
+  width:7%;
+  height:50%;
+  border-radius: 50%;
+  background-color:gray;
+  margin-right:1%;
+}
+
+.interaction > .i-text {
+  font-size:2vw;
+  overflow-x: wrap;
 }
 
 #interactions-log-button {
@@ -580,6 +639,113 @@ input.field {
 }
 
 #interactions-friend-dropdown {
-  width: contain;
-  height: 100%;
+  width: 50%;
+  height: 40%;
+}
+
+
+
+
+
+
+/* ============================
+######## PFP SELECT ###########
+=============================*/
+#pfp-select-button {
+}
+
+#pfp-select-image {
+  width: 50%;
+  height: 50%;
+  padding: 5%;
+}
+
+#pfp-select-image:hover {
+  cursor:pointer;
+}
+
+#pfp-select-page {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:flex-start;
+  width: 100%;
+  height: 150%;
+  overflow-y:scroll;
+}
+
+#pfp-select-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-evenly;
+  width: 100%;
+  height: 50%;
+}
+
+
+#pfp-select-top > div {
+  width:auto;
+  height:auto;
+  -webkit-filter: brightness(100%);
+}
+
+#pfp-select-bottom > div {
+  width:auto;
+  height:auto;
+  -webkit-filter: brightness(100%);
+}
+
+#pfp-select-bottom-bottom > div {
+  width:auto;
+  height:auto;
+  -webkit-filter: brightness(100%);
+}
+
+#pfp-select-top > div:hover {
+  cursor:pointer;
+  -webkit-filter: brightness(70%);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+#pfp-select-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-evenly;
+  width: 100%;
+  height: 50%;
+}
+
+#pfp-select-bottom > div:hover {
+  cursor:pointer;
+  -webkit-filter: brightness(70%);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+#pfp-select-bottom-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-evenly;
+  width: 100%;
+  height: 50%;
+}
+
+#pfp-select-bottom-bottom > div:hover {
+  cursor:pointer;
+  -webkit-filter: brightness(70%);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
 }

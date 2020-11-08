@@ -22,6 +22,18 @@ const status = {
 	SAFE : 'safe'
 }
 
+const pfp = {
+  DEFAULT : 'https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon%20(1).png?v=1604780268903',
+  NINJA : 'https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon-ninja%20(1).png?v=1604819233588',
+  CIA : 'https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon-cia.png?v=1604821362427',
+  FANCY : 'https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon-fancy%20(1).png?v=1604799697339',
+  COW : 'https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon-cow.png?v=1604823476482',
+  ROYAL : 'https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon%20(2).png?v=1604813251170',
+  GREEN : 'https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2Fgreen-icon%20(1).png?v=1604799767748',
+  RED : 'https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2Fred-icon%20(1).png?v=1604799883379',
+  HALO : 'https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon-halo%20(1).png?v=1604813454785'
+}
+
 function makeScreenVisible(screenId){
   $('.screen').css('display', 'none');
   $('#'+screenId).css('display', 'flex');
@@ -68,7 +80,8 @@ document.getElementById('submit-signup-button').addEventListener('click', functi
       friend_requests : [],
       interactions: [],
       language: language,
-      status: status.SAFE
+      status: status.SAFE,
+      profile_picture : pfp.DEFAULT
     },
     confirm: confirm
   }) 
@@ -87,7 +100,7 @@ socket.on("new-user-response", (data) => {
     let reason = data[1];
     switch (reason) {
       case "password":
-        document.getElementById("signup-error-message").innerHTML = "invalid password, must be at least 6 characters\n and contain 1 number or letter"
+        document.getElementById("signup-error-message").innerHTML = "invalid password, must be at least 6 characters"
         break;
       case "email":
         document.getElementById("signup-error-message").innerHTML = "invalid email, must follow format (example@example.com)"
@@ -143,57 +156,120 @@ document.getElementById("profile-button").addEventListener("click",() => {
 
 document.getElementById("friends-button").addEventListener("click",() => {
   makePageVisible("friends-page");
-  document.getElementById("friend-request-content").innerHTML = generateFriendRequestHTML(user.friend_requests);
+  //update friend request HTML
+  updateData(user);
+
 })
 
 document.getElementById("interactions-button").addEventListener("click",() => {
   makePageVisible("interactions-page");
+  updateData(user);
 })
+
+document.getElementById("big-green-button").addEventListener("click",() => {
+  socket.emit("big-green-button", user.email);
+});
 
 document.getElementById("big-red-button").addEventListener("click",() => {
+  let message = prompt("Please enter an optional message to be emailed out to friends:");
   socket.emit("big-red-button", {
     email : user.email,
-    //message : document.getElementById(user_message_id).value
+    message : message
   });
+  
+  
+});
+
+// -------- pfp select --------------
+document.getElementById("pfp-select-button").addEventListener("click",() => {
+  makePageVisible("pfp-select-page");
+});
+
+
+$('.pfp').each(function(){
+  this.addEventListener('click', () => {
+    let key = this.id.split('-')[0].toUpperCase();
+    user.profile_picture = pfp[key];
+    socket.emit("update-pfp", {
+      email: user.email,
+      profile_picture: user.profile_picture
+    });
+    updateData(user);
+    makePageVisible("profile-page");
+  })
 })
 
 
+document.getElementById("interactions-log-button").addEventListener('click', function(){
+  user.interactions.push({
+    time: (new Date()).toDateString(),
+    user: document.getElementById("interactions-friend-dropdown").value
+  });
+  document.getElementById("interactions-friend-dropdown").value = "";
+  socket.emit('write-interactions', {
+      email: user.email,
+      interactions: user.interactions
+    }
+  );
+});
 
-document.getElementsByClassName("friend-request-accept-button").addEventListener("click", () => {
+
+
+
+
+function updateFRContent(friend_requests){
+  //generate the friend request list HTML, and add an event listener to each of the pairs of buttons
+  document.getElementById("friend-request-content").innerHTML = generateFriendRequestHTML(friend_requests);
+  $(".friend-request-accept-button").each( function() {
+    this.addEventListener("click", () => {
+      let friend = document.getElementById("friend-request-name" + this.id[this.id.length-1]).innerHTML.trim();
+      console.log('user: ' + user.email)
+      console.log('friend: ' + friend);
+      socket.emit('accept-friend-request', {
+        friend : friend, 
+        user : user.email
+      });
+    })
+  })
   
-  socket.emit('accept-friend-request', {
-    friend : document.getElementById("friend-request-name" + this.id[this.id.length-1]).value, 
-    user : user.email
-  });
-});
+  $(".friend-request-reject-button").each( function() {
+    this.addEventListener("click", () => {
+      let friend = document.getElementById("friend-request-name" + this.id[this.id.length-1]).innerHTML.trim();
+      console.log('user: ' + user.email)
+      console.log('friend: ' + friend);
+      socket.emit('reject-friend-request', {
+        friend : friend, 
+        user : user.email
+      });
+    })
+  })
+}
 
-document.getElementsByClassName("friend-request-reject-button").addEventListener("click", () => {
-  socket.emit('reject-friend-request', {
-    friend : document.getElementById("friend-request-name" + this.id[this.id.length-1]).value, 
-    user : user.email
-  });
-});
 
 
+// function updateFriendList(friends){
+//   //document.getElementById("friend-list-div").innerHTML = generateFriendListHTML(friends);
+//   socket.emit("")
+// }
 
 
 
 
 socket.on('push_data', (data) => {
   if(data === false){
-    //TODO : ADD INVALID CREDENTIALS RED FLAG TO LOGIN SCREEN
     $("#login-error-div").show()
   }
   else{
     $("#login-error-div").hide()
     user = data;
+    updateData(user);
     makeScreenVisible("main-screen");
     makePageVisible("home-page");
   }
 });
 
 
-
+//response from server after sending a friend request
 socket.on('friend-request-response', (data) => {
   console.log("friend request response: " + data.toString())
   if(data === true){
@@ -205,6 +281,45 @@ socket.on('friend-request-response', (data) => {
   }
 })
 
+
+socket.on('friend-request-resolution', (data) => {
+  if(data.accepted === true){
+    user.friends.push(data.friend);
+  }
+  for(let i = user.friend_requests.length-1; i >= 0; i --){
+    if(user.friend_requests[i] === data.friend){
+      user.friend_requests.splice(i,1);
+    }
+  }
+  
+  updateData(user);
+  
+  
+})
+
+
+socket.on('response-friend-list-HTML', (data) => {
+  console.log(data);
+  document.getElementById("friend-list-div").innerHTML = data;
+})
+
+socket.on("response-interactions-history-HTML", (data) => {
+  console.log(data);
+  document.getElementById("interactions-history-content").innerHTML = data;
+  //updateData(user);
+})
+
+
+socket.on('updateData', (data) => {
+  for( let email in data){
+    if(email === user.email){
+      user = data[email];
+      user.friends = Array.from(new Set(user.friends));
+      updateData(user);
+      break;
+    }
+  }
+})
 
 
 
@@ -229,6 +344,7 @@ function generateFriendRequestHTML(friend_requests){
 
     `
     output += h;
+    i+=1
     /*
     <div class="friend-request">
         <p class="friend-request-name">
@@ -248,3 +364,50 @@ function generateFriendRequestHTML(friend_requests){
   console.log(output);
   return output;
 }
+
+
+function generateInteractionsDropdown(friends){
+  let output = ""
+  for (let friend of friends) {
+    let h = `
+      <option value="${friend}">${friend}</option>
+
+    `
+    output += h;
+  }
+  
+  console.log(output);
+  return output;
+}
+
+
+function updateInteractionsDropdown(friends){
+  document.getElementById("interactions-friend-dropdown").innerHTML = generateInteractionsDropdown(friends);
+}
+
+
+
+
+function updateData(user){
+  //friend requests
+  updateFRContent(user.friend_requests);
+  
+  //interactions dropdown
+  updateInteractionsDropdown(user.friends);
+  
+  //interactions list
+  socket.emit("request-interactions-history-HTML", user.interactions);
+  
+  //friend list
+  socket.emit("request-friend-list-HTML", user.friends);
+  
+  
+  
+  //profile picture
+  $(".user-profile-picture").each(function(){
+      $(this).attr('src', user.profile_picture);
+  })
+}
+
+
+
