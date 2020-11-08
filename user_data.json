@@ -1,252 +1,81 @@
 {
-  "abc@gmail.com": {
-    "email": "abc@gmail.com",
-    "name": "abc",
-    "password": "abc",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "email@example.com": {
-    "email": "email@example.com",
-    "name": "username",
-    "password": "password",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "jack@jack.jack": {
-    "email": "jack@jack.jack",
-    "name": "jack",
-    "password": "jack",
-    "friends": [],
-    "interactions": [],
-    "language": "ja",
-    "status": "safe"
-  },
-  "dinosaurguy@gmail.com": {
-    "email": "dinosaurguy@gmail.com",
-    "name": "tRex",
-    "password": "oof1234",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "8@8.com": {
-    "email": "8@8.com",
-    "name": "8",
-    "password": "88888888",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "9@9.9": {
-    "email": "9@9.9",
-    "name": "9",
-    "password": "9999999",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "verycoolahaha": {
-    "email": "verycoolahaha",
-    "name": "ahaha",
-    "password": "ahaha123",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "sjkbdhfksdf@gmail.com": {
-    "email": "sjkbdhfksdf@gmail.com",
-    "name": "asff",
-    "password": "asdfa",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "massivebrain47@gmail.com": {
-    "email": "massivebrain47@gmail.com",
-    "name": "big brain",
-    "password": "brain657",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "aSDFAFSAFAFSAFSFASAFSAFS@gmail.com": {
-    "email": "aSDFAFSAFAFSAFSFASAFSAFS@gmail.com",
-    "name": "adsf",
-    "password": "asfa",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "thiswontwork@gmail.com": {
-    "email": "thiswontwork@gmail.com",
-    "name": "yee",
-    "password": "epicgamer1",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "f@gmail.com": {
-    "email": "f@gmail.com",
-    "name": "yee",
-    "password": "epicgamer1",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "f2@gmail.com": {
-    "email": "f2@gmail.com",
-    "name": "yee",
-    "password": "epicgamer1",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "f1": {
-    "email": "f1",
-    "name": "epic gamer",
-    "password": "epicgamer1",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "asdas": {
-    "email": "asdas",
-    "name": "asdas",
-    "password": "asdasd",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "asfdasfasfasfasgfdadsgasdg": {
-    "email": "asfdasfasfasfasgfdadsgasdg",
-    "name": "asdgasdgasdgasdg",
-    "password": "asdgasdgasdga",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "asdawd@we.com": {
-    "email": "asdawd@we.com",
-    "name": "fwerntrv",
-    "password": "yeee678",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "asfasfasfasfas": {
-    "email": "asfasfasfasfas",
-    "name": "fasfasfasfasf",
-    "password": "asfasfasfasfasfasf",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "14thegreat@gmail.com": {
-    "email": "14thegreat@gmail.com",
-    "name": "ejngeorng",
-    "password": "paosdwe",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "": {
-    "email": "",
-    "name": "",
-    "password": "",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "megamind@gmail.com": {
-    "email": "megamind@gmail.com",
-    "name": "MEGAMIND",
-    "password": "megaga",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "swdf@asdfg.asf": {
-    "email": "swdf@asdfg.asf",
-    "name": "asdfg",
-    "password": "aaaaaa",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "test2@test.com": {
-    "email": "test2@test.com",
-    "name": "testguy2",
-    "password": "testtest",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
-  "john234@gmail.com": {
-    "email": "john234@gmail.com",
-    "name": "john",
-    "password": "john1234",
-    "friends": [],
-    "interactions": [],
-    "language": "en",
-    "status": "safe"
-  },
   "myemail@gmail.com": {
     "email": "myemail@gmail.com",
-    "name": "my name",
+    "name": "john",
     "password": "password1",
     "friends": [],
+    "friend_requests": [
+      "q@q.q"
+    ],
     "interactions": [],
     "language": "en",
     "status": "safe"
   },
-  "sdfs@asdf.cpjm": {
-    "email": "sdfs@asdf.cpjm",
-    "name": "alsflf",
-    "password": "ffffff",
+  "exist@gmail.com": {
+    "email": "exist@gmail.com",
+    "name": "yee",
+    "password": "password2",
     "friends": [],
+    "friend_requests": [
+      "q@q.q",
+      "urookim@gmail.com",
+      "newemail@gmail.com"
+    ],
     "interactions": [],
-    "language": "en",
-    "status": "safe"
+    "language": "it",
+    "status": "positive"
   },
   "q@q.q": {
     "email": "q@q.q",
     "name": "q",
     "password": "qqqqqq",
     "friends": [],
+    "friend_requests": [
+      "a@a.a"
+    ],
     "interactions": [],
     "language": "en",
     "status": "safe"
   },
-  "Hdjjddj@jdhdj.com": {
-    "email": "Hdjjddj@jdhdj.com",
-    "name": "Pee",
-    "password": "Shehsheheh",
+  "urookim@gmail.com": {
+    "email": "urookim@gmail.com",
+    "name": "Jack",
+    "password": "aaaaaa",
     "friends": [],
+    "friend_requests": [
+      "urookim@gmail.com",
+      "q@q.q",
+      "pissbaby@gmail.com"
+    ],
+    "interactions": [],
+    "language": "en",
+    "status": "safe"
+  },
+  "pissbaby@gmail.com": {
+    "email": "pissbaby@gmail.com",
+    "name": "PISSBABY",
+    "password": "aaaaaa",
+    "friends": [],
+    "interactions": [],
+    "language": "es",
+    "status": "safe"
+  },
+  "a@a.a": {
+    "email": "a@a.a",
+    "name": "a",
+    "password": "aaaaaa",
+    "friends": [],
+    "friend_requests": [],
+    "interactions": [],
+    "language": "en",
+    "status": "safe"
+  },
+  "newemail@gmail.com": {
+    "email": "newemail@gmail.com",
+    "name": "new person",
+    "password": "yes1234",
+    "friends": [],
+    "friend_requests": [],
     "interactions": [],
     "language": "en",
     "status": "safe"

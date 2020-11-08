@@ -92,20 +92,6 @@ function readJson(filePath, callback) {
 
 
 
-
-async function getCPPOutput(filename, args, callback){
-  try {
-    const url = 'https://cdn.glitch.com/19fc6a7c-36ed-490f-9180-e959add43c26%2Fcpp_js.exe?v=1603322741879'
-    const {stdout} = await execFile(__dirname + '/assets/' + filename,  [...args]);
-    return callback && callback(stdout.trim().split('\n'));
-  } catch (error) {
-    console.log("Error executing C++ file: " + filename);
-    console.log(error);
-    return;
-  }
-}
-
-
 function translate(text, source, target, callback){
   languageTranslator.translate({text: text, source: source, target: target})
   .then(response => {
@@ -246,7 +232,6 @@ io.on('connection',(socket) => {
       socket.emit('push_data', user_data[data.email]);
     }
     else{
-      console.log(`User failed login :(. Passed email:${data.email} pass:${data.password}. expected pass : ${user_data[data.email].password}`);
       socket.emit('push_data', false);
     }
   });
@@ -272,12 +257,57 @@ io.on('connection',(socket) => {
     socket.emit('new-user-response', response);
   });
   
+  socket.on('send-friend-request', (data) => {
+    if(data.friend === data.user || !(data.friend in user_data))
+      {
+        socket.emit('friend-request-response', false);
+        return;
+      }
+    
+    
+    console.log('INCOMING FRIENDO');
+    console.log(user_data[data.friend].friend_requests);
+    if(!(user_data[data.friend].friend_requests.includes(data.user)) && !(user_data[data.friend].friends.includes(data.user)))
+    {
+      
+      (user_data[data.friend].friend_requests).push(data.user);
+      
+      //write user_data to json file
+      const user_json = JSON.stringify(user_data, null, 2);
+      fs.writeFile('user_data.json', user_json, (err) => {
+        if (err) {
+            throw err;
+        }
+        console.log("JSON data is saved.");
+        
+        socket.emit('friend-request-response', true);
+        
+      });
+    } else {
+      socket.emit('friend-request-response', false);
+    }
+  });
   
   
+  socket.on('accept-friend-request', (data) => {
+    user_data[data.user].friend_requests = user_data[data.user].friend_requests.filter(e => e !== data.friend);
+    user_data[data.friend].friend_requests = user_data[data.friend].friend_requests.filter(e => e !== data.user);
+    user_data[data.user].friends.push(data.friend);
+    user_data[data.friend].friends.push(data.user);
+  })
+  
+    socket.on('reject-friend-request', (data) => {
+    user_data[data.user].friend_requests = user_data[data.user].friend_requests.filter(e => e !== data.friend);
+    user_data[data.friend].friend_requests = user_data[data.friend].friend_requests.filter(e => e !== data.user);
+  })
   
   
   
 });   
+
+
+
+
 
 
 
@@ -312,9 +342,8 @@ function confirmDisplay(display_name){
 
 function confirmPassword(password){
   //At least 6 characters
-  //First character must be a letter
   //Other characters can be alphanumeric + underscore
-  const valid = password.match(/^[A-Za-z]\w{5,}$/);
+  const valid = password.match(/^\w{6,}$/);
   if(!valid) 
     // ################
     // show password error
@@ -324,7 +353,7 @@ function confirmPassword(password){
 
 function confirmEmail(email){
   
-  if((!(email in user_data)) && !email.match(/^\w{1,}@\w{1,}.\w{1,}$/))
+  if(((email in user_data)) || !email.match(/^\w{1,}@\w{1,}.\w{1,}$/))
     return false;
   return true;
 }

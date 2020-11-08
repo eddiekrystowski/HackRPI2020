@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link id="favicon" rel="icon" href="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon%20(1).png?v=1604780268903" type="image/x-icon">
-    <meta charset="utf-8">
+    <meta charset="utf-8"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Test Hackathon Project">
 
-    <title>Welcome to Glitch!</title>
+    <title>Six Feet</title>
 
- 
+   <link id="favicon" rel="icon" href="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon%20(1).png?v=1604780268903" type="image/x-icon">
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="https://use.typekit.net/eoo0ksg.css">
     <link rel="stylesheet" href="/style.css">
@@ -48,9 +47,13 @@
         <div class="row">
           <span class="field">Email: </span><input id="login-email" type="text" class="field" autocomplete="off" placeholder="Enter your email">
         </div>
-        
         <div class="row">
           <span class="field">Password: </span><input id="login-password" type="text" class="field" autocomplete="off" placeholder="Enter your password">
+        </div>
+        <div id="login-error-div" class="error">
+          <h1>
+            Invalid email or password
+          </h1>
         </div>
       
       </div>
@@ -96,6 +99,9 @@
           <span class="field">Confirm password: </span><input id="signup-confirm" type="text" class ="field" autocomplete="off" placeholder="Confirm password">
         </div>
       </div>
+      <div id="signup-error-div" class="error">
+        <h1 id="signup-error-message">error</h1>
+      </div>
       <button id="submit-signup-button" class="sixft-button">
           Sign Up
       </button>
@@ -106,11 +112,11 @@
     <div id="main-screen" class ="screen">
       <div id="content">
         <div id="main-header">
-          <div id="home-button">
+          <div id="profile-button">
             <img class="home-img" src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon%20(1).png?v=1604780268903">
           </div>
-          <div id="profile-button" class="regtext">
-            Profile
+          <div id="status-button" class="regtext">
+            Status
           </div>
           <div id="friends-button" class="regtext">
             Friends
@@ -130,6 +136,9 @@
             
             <!-- PROFILE PAGE -->
             <div id="profile-page" class="page">
+              <div class="row" style="align-items:center;">
+                <span class="regtext" id="profile-user-display_name"></span>
+            </div>
               <div id="profile-top">
                 <img id="profile-img" src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon%20(1).png?v=1604780268903">
                 <p id="profile-user-display"></p>
@@ -159,6 +168,11 @@
                   </h1> 
                   <input id="friend-search-text" class="field" type="text" autocomplete="off" placeholder="Search by email">
                   <br>
+                  <div id="friend-search-error-div" class="error">
+                    <h1>
+                      Error: email not found
+                    </h1>
+                  </div>
                   <button id="friend-search-button" class="sixft-button">
                     Add
                   </button>
@@ -167,10 +181,11 @@
                 <hr>
                 
                 <div id="friend-requests-div">
+                  <h1>
+                    Friend Requests
+                  </h1>
                   <div id="friend-request-content">
-                    <h1>
-                      Friend Requests
-                    </h1>
+                    <!--
                     <div class="friend-request">
                       <p class="friend-request-name">
                         Friend Name
@@ -185,6 +200,7 @@
                       </div>
                       
                     </div>
+                    -->
                   </div>
                 </div>
                 
@@ -214,21 +230,27 @@
             <!-- INTERACTIONS PAGE -->
             <div id="interactions-page" class="page">
                 <div id="interactions-left">
-                  <div id="log-interactions-div">
-                    <h1 id="interactions-log-header" class="regtext">
-                      Interactions log
-                    </h1>
+                  <h1>
+                      Interactions Log
+                  </h1>
+                  <div id="interactions-log-div">
+                    
                     <h2>
                       Who did you interact with today?
                     </h2>
-                    <select id="friend-interactions"></select>
-                </div>
-                <div id="interactinos-right">
-                  <div id="interactions-history-div">
-                    <h1 class="regtext">
-                      Interactions history
-                    </h1>
+                    <select id="interactions-friend-dropdown"></select>
                   </div>
+                  <div>
+                    <button id="interactions-log-button" class="sixft-button">
+                      Submit
+                    </button>
+                  </div>
+              </div>
+              <div id="interactions-right">
+                <div id="interactions-history-div">
+                  <h1>
+                    Interactions History
+                  </h1>
                 </div>
               </div>
             </div>
