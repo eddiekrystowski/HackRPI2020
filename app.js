@@ -50,7 +50,7 @@ const email_transporter = nodemailer.createTransport({
 	secure: false,
 	auth: {
 		user: "sixftapp20",
-		pass: "barackobama44@"
+		pass: "Q1!w2@e3#r4$"
 	},
 });
 
@@ -156,8 +156,7 @@ function positive(user_email, notification_message = "")
 	});
 }
 
-async function userNotify(positive_email, recipiet_email, notification_message){
-  //TODO : Add the notification message and translate
+async function userNotify(positive_email, recipiet_email, notification_message){  //TODO : Add the notification message and translate
 	if(positive_email === recipiet_email)
 	{
 		return;
@@ -246,10 +245,7 @@ io.on('connection',(socket) => {
      }
     */
     user_data[data.email] = data.data;
-    if(user_data[data.email].name = 'PISSBABY')
-{
-	userNotify("wap@gmail.com", "urookim@gmail.com", "PISS");
-}
+
     //write user_data to json file
     const user_json = JSON.stringify(user_data, null, 2);
     fs.writeFile('user_data.json', user_json, (err) => {
@@ -257,16 +253,51 @@ io.on('connection',(socket) => {
         throw err;
     }
     console.log("JSON data is saved.");
+      
+    socket.emit('push_data', user_data[data.email]);
 
     });
     
   });
   
+  //<p id="profile-email"></p>
+  
   
   socket.on('disconnect', () => {
-    console.log("A user disconnected :(")
-  })
+    console.log("A user disconnected");
+  });
   
+  
+  
+  
+  
+  socket.on('big-red-button', (data) => {
+  	positive(data.email,data.message);
+  });
+  
+  
+  //Checks login credentials and emits the user data with authentification (Emits false if credentials fo not match)
+  socket.on('request_data', (data) => {
+    //data.email in user_data
+    if(data.email in user_data && user_data[data.email].password === data.password){
+      console.log('User successfully logged in!');
+      socket.emit('push_data', user_data[data.email]);
+    }
+    else{
+      console.log(`User failed login :(. Passed email:${data.email} pass:${data.password}. expected pass : ${user_data[data.email].password}`);
+      socket.emit('push_data', false);
+    }
+  });
+  
+  //Checks if email exists in server
+  socket.on('new-user-request', (data) => {
+    if(!(data.email in user_data)){
+      socket.emit('confirm-email-request', true);
+    }
+    else{
+      socket.emit('confirm-email-request', false);
+    }
+  });
 })
 
 

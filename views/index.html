@@ -71,7 +71,7 @@
         </div>
         
         <div class="row">
-          <span class ="field">Display name: </span><input id="signup-display" type="text" class="field" autocomplete="off" placeholder="How other users will identify you">
+          <span class ="field">Display name: </span><input id="signup-display" type="text" class="field" autocomplete="off" placeholder="How other users will see you">
         </div>
         
         <div class="row">
@@ -109,13 +109,13 @@
           <div id="home-button">
             <img class="home-img" src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon%20(1).png?v=1604780268903">
           </div>
-          <div id="profile-button">
+          <div id="profile-button" class="regtext">
             Profile
           </div>
-          <div id="friends-button">
+          <div id="friends-button" class="regtext">
             Friends
           </div>
-          <div id="interactions-button">
+          <div id="interactions-button" class="regtext">
             Interactions
           </div>
         </div>
@@ -127,15 +127,79 @@
                 <img id="big-red-button" src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2Fbig-red-button.png?v=1604784796237">
             </div>
             <!-- End of HOME PAGE -->
+            
+            <!-- PROFILE PAGE -->
             <div id="profile-page" class="page">
+              <div id="profile-top">
+                <img id="profile-img" src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon%20(1).png?v=1604780268903">
+                <p id="profile-user-display"></p>
+              </div>
+              <div class="row" style="align-items:center;">
+                <span class="regtext">Email: </span><span id="profile-user-email"></span>
+              </div>
+              
+              <div class="row" style="align-items:center;">
+                <!-- LET USER CHANGE LANGUAGE -->
+              <span class="regtext">Language: </span><span id="profile-user-language"></span>
+              </div>
+              
+              <div class="row" style="align-items:center;">
+                <span class="regtext">Status: </span><span id="profile-user-status"></span>
+              </div>
               
             </div>
+            <!-- End of PROFILE PAGE -->
+            
+            <!-- FRIEND PAGE -->
             <div id="friends-page" class="page">
-              
+              <div id="friends-left">
+                <div id="friend-search-div">
+                  <h1>
+                    Find Friends
+                  </h1> 
+                  <input id="friend-search-text" class="field" type="text" autocomplete="off" placeholder="Search by email">
+                  <br>
+                  <button id="friend-search-button" class="sixft-button">
+                    Search
+                  </button>
+                </div>
+            
+                <hr>
+                
+                <div id="friend-requests-div">
+                  <div id="friend-request-content">
+                    <h1>
+                      Friend Requests
+                    </h1>
+                    <div class="friend-request">
+                      <p class="friend-request-name">
+                        Friend Name
+                      </p>
+                      <div class="row">
+                        <button class="friend-request-accept-button">
+                          Accept
+                        </button>
+                        <button class="friend-request-reject-button">
+                          Reject
+                        </button>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+              <div id="friends-right">
+                
+              </div>
             </div>
+            <!-- End of FRIEND PAGE -->
+            
+            <!-- INTERACTIONS PAGE -->
             <div id="interactions-page" class="page">
               
             </div>
+            <!-- End of INTERACTIONS PAGE -->
           </div>
         </div>
       </div>

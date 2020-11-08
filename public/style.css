@@ -1,7 +1,8 @@
 html,body{
-  margin:0px;
+  margin:0px !important;
   padding:0px;
-  height:100%;
+  height:100vh !important;
+  width:100%;
 }
 
 body {
@@ -57,16 +58,21 @@ button:hover{
 
 
 .sixft-button {
-    -webkit-filter: brightness(100%);
+  -webkit-filter: brightness(100%);
 }
 
 .sixft-button:hover {
-    -webkit-filter: brightness(70%);
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
+  -webkit-filter: brightness(70%);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.regtext {
+  color: RGB(43, 54, 105);
+  font-size: 5vw;
 }
 
 
@@ -137,12 +143,19 @@ button:hover{
 }
 
 .field {
+  color: RGB(43, 54, 105);
   font-size: 2vw;
   margin:0px
 }
 
 input.field {
+  width:60%;
   padding:1%;
+  background-color: RGB(235, 245, 255);
+  outline:none;
+  border:none;
+  border-bottom: 2px solid darkblue;
+  margin-left:2%;
 }
 
 #submit-login-button {
@@ -152,12 +165,17 @@ input.field {
 }
 
 #login-form {
-  background-color: none;
   display:flex;
   flex-direction:column;
-  align-items:flex-end;
+  align-items:center;
   justify-content:space-evenly;
   height:20%;
+  width:50%;
+}
+
+#login-form > .row {
+  justify-content:flex-end;
+  width:100%;
 }
 
 
@@ -181,10 +199,18 @@ input.field {
 #signup-form {
   display:flex;
   flex-direction:column;
-  align-items:flex-end;
+  align-items:center;
   justify-content:space-evenly;
   height:40%;
+  width:50%;
 }
+
+#signup-form > .row {
+  justify-content:flex-end;
+  width:100%;
+}
+
+
 
 #submit-signup-button {
   font-size:3vw;
@@ -193,7 +219,9 @@ input.field {
 
 #signup-language {
   font-size:1vw;
-  width:100%;
+  width:63%;
+  margin-left:2%;
+  
 }
 
 
@@ -307,8 +335,7 @@ input.field {
 
 
 #big-green-button, #big-red-button {
-  margin:10%;
-  width:100%;
+  width:30%;
   height:60%;
   -webkit-filter: brightness(100%);
 }
@@ -325,14 +352,126 @@ input.field {
 }
 
 
-
 #profile-page {
   display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  height:100%;
+  font-size:2vw;
 }
+
+#profile-top{
+  display:flex;
+  flex-direction:column;
+}
+
 
 #friends-page {
   display:none;
+  flex-direction:row;
+  padding:3%;
 }
+
+#friends-left {
+  display:flex;
+  flex-direction:column;
+  width:50%;
+  align-items:center;
+  justify-content:space-evenly;
+}
+
+#friends-left > input.field {
+  font-size:2vw;
+  margin-left:0px;
+  margin-right:2%;
+}
+
+#friends-left > h1 {
+  font-size:2.4vw;
+}
+
+#friends-left > .sixft-button {
+  width:20%;
+}
+
+#friends-left > hr {
+  width:100%;
+  color:black;
+}
+
+
+#friend-search-div {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:100%;
+  height:40%;
+  color: RGB(43, 54, 105);
+}
+
+#friend-search-button {
+  color: RGB(43, 54, 105);
+  font-size:2vw;
+}
+
+#friend-requests-div {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:100%;
+  height:45%;
+  position:relative;
+  color: RGB(43, 54, 105);
+}
+
+#friend-request-content {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:100%;
+  height:100%;
+  overflow-y:scroll;
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:-17px;
+}
+
+.friend-request {
+  display:flex;
+  flex-direction:row;
+  justify-content:space-evenly;
+  align-items:center;
+  padding:1%;
+  width:80%;
+  height:15%;
+  border-bottom: 1px solid black
+}
+
+.friend-request-name {
+    font-size:2vw;
+}
+
+.friend-request-accept-button {
+  font-size:2vw;
+}
+
+.friend-request-reject-button {
+  margin-left:5%;
+  font-size:2vw;
+}
+
+.friend-request-accept-button:hover {
+  background: lightgreen;
+}
+
+.friend-request-reject-button:hover {
+  background: lightcoral;
+}
+
 
 #interactions-page {
   display:none;
