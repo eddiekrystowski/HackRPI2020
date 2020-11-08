@@ -65,8 +65,8 @@ readJson("user_data.json", function(error, data){
   }
   
   user_data = data;
-  console.log("Parsed data:")
-  console.log(user_data);
+  //console.log("Parsed data:")
+  //console.log(user_data);
   
 });
 
@@ -228,47 +228,9 @@ io.on('connection',(socket) => {
   
   console.log('A user has connected!');
   
-  
-  socket.on('new-user', (data) => {
-    //data
-    /*
-     {
-      "email": email,
-      "data" : {
-        name: display_name,
-        password: password,
-        friends: [],
-        interactions: [],
-        language: [],
-        status: 0
-      }
-     }
-    */
-    user_data[data.email] = data.data;
-
-    //write user_data to json file
-    const user_json = JSON.stringify(user_data, null, 2);
-    fs.writeFile('user_data.json', user_json, (err) => {
-    if (err) {
-        throw err;
-    }
-    console.log("JSON data is saved.");
-      
-    socket.emit('push_data', user_data[data.email]);
-
-    });
-    
-  });
-  
-  //<p id="profile-email"></p>
-  
-  
   socket.on('disconnect', () => {
     console.log("A user disconnected");
   });
-  
-  
-  
   
   
   socket.on('big-red-button', (data) => {
@@ -291,13 +253,78 @@ io.on('connection',(socket) => {
   
   //Checks if email exists in server
   socket.on('new-user-request', (data) => {
-    if(!(data.email in user_data)){
-      socket.emit('confirm-email-request', true);
+    console.log('confirming signup');
+    let response = confirmSignup(data);
+    if(response[0] === true){
+      user_data[data.email] = data.data;
+
+      //write user_data to json file
+      const user_json = JSON.stringify(user_data, null, 2);
+      fs.writeFile('user_data.json', user_json, (err) => {
+        if (err) {
+            throw err;
+        }
+        console.log("JSON data is saved.");
+
+        socket.emit('push_data', user_data[data.email]);
+      })
     }
-    else{
-      socket.emit('confirm-email-request', false);
-    }
+    socket.emit('new-user-response', response);
   });
-})
+  
+  
+  
+  
+  
+  
+});   
 
 
+
+function confirmSignup(data){
+  if (!confirmPassword(data.data.password)){
+      console.log('invalid password')
+      return [false, 'password'];
+    }
+    if (!confirmEmail(data.data.email)){
+      console.log('invalid email')
+      return [false, 'email'];
+    }
+    if (!confirmDisplay(data.data.name)){
+      console.log('invalid display')
+      return [false, 'display'];
+    }
+    if(data.data.password !== data.confirm){
+      console.log('passwords don\'t match')
+      return [false, 'confirm'];
+    }
+    
+    
+    console.log('returning true')
+    return [true, null];
+}
+
+function confirmDisplay(display_name){
+  if (display_name && isNaN(display_name))
+      return true
+  return false
+}
+
+function confirmPassword(password){
+  //At least 6 characters
+  //First character must be a letter
+  //Other characters can be alphanumeric + underscore
+  const valid = password.match(/^[A-Za-z]\w{5,}$/);
+  if(!valid) 
+    // ################
+    // show password error
+    return false;
+  return true
+}
+
+function confirmEmail(email){
+  
+  if((!(email in user_data)) && !email.match(/^\w{1,}@\w{1,}.\w{1,}$/))
+    return false;
+  return true;
+}

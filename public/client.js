@@ -40,61 +40,6 @@ function requestData(email, password){
   })
 }
 
-// takes input from signup screen and checks if all fields are valid, if so sends data to be stored and brings to main screen
-/*function confirmSignup(email, display_name, password, confirm){
-  return true;
-  console.log('confirming signup');
-  if (!confirmPassword(password)){
-    console.log('invalid password')
-    return false;
-  }
-  if (!confirmEmail(email)){
-    console.log('invalid email')
-    return false;
-  }
-  if (!confirmDisplay(display_name)){
-    console.log('invalid display')
-    return false;
-  }
-  if(password !== confirm){
-    console.log('passwords don\'t match')
-    return false;
-  }
-  
-  
-  console.log('returning true')
-  return true;
-}
-
-function confirmDisplay(display_name){
-  if (display_name && isNaN(display_name))
-      return true
-  return false
-}
-
-function confirmPassword(password){
-  //At least 6 characters
-  //First character must be a letter
-  //Other characters can be alphanumeric + underscore
-  const valid = password.match(/^[A-Za-z]\w{5,}$/);
-  if(!valid) 
-    // ################
-    // show password error
-    return false;
-  return true
-}
-
-function confirmEmail(email){
-  
-  socket.emit('confirm-email-request', email);
-  if(!email.match(/^\w{1,}@\w{1,}.\w{1,}$/))
-    return false;
-  return true;
-}
-
-
-*/
-
 //add event listener to login button
 document.getElementById('login-button').addEventListener('click', function(){
   makeScreenVisible('login-screen');
@@ -123,17 +68,22 @@ document.getElementById('submit-signup-button').addEventListener('click', functi
       interactions: [],
       language: language,
       status: status.SAFE
-    }
+    },
+    confirm: confirm
   }) 
 })
 
 socket.on("new-user-response", (data) => {
-  if(data === true){
+  if(data[0] === true){
     //success
     makeScreenVisible("main-screen");
+    makePageVisible("home-page");
+    
   } else {
     return
     //failed
+    let reason = data[1];
+    console.log("error: " + reason)
     //error messsages --------
   }
 })
@@ -159,9 +109,9 @@ document.getElementById("home-button").addEventListener("click",() => {
 
 document.getElementById("profile-button").addEventListener("click",() => {
   makePageVisible("profile-page");
-  document.getElementById("profile-user-email").innerHTML = user.email;
-  document.getElementById("profile-user-language").innerHTML = user.language;
-  document.getElementById("profile-user-status").innerHTML = user.status;
+  document.getElementById("profile-user-email").innerHTML = "  " + user.email;
+  document.getElementById("profile-user-language").innerHTML = "  " + user.language;
+  document.getElementById("profile-user-status").innerHTML = "  " + user.status;
 })
 
 document.getElementById("friends-button").addEventListener("click",() => {
@@ -195,5 +145,3 @@ socket.on('push_data', (data) => {
     makePageVisible("home-page");
   }
 });
-
-

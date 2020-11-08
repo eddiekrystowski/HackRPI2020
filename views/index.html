@@ -135,16 +135,16 @@
                 <p id="profile-user-display"></p>
               </div>
               <div class="row" style="align-items:center;">
-                <span class="regtext">Email: </span><span id="profile-user-email"></span>
+                <span class="regtext">Email: </span><span class="regtext" id="profile-user-email"></span>
               </div>
               
               <div class="row" style="align-items:center;">
                 <!-- LET USER CHANGE LANGUAGE -->
-              <span class="regtext">Language: </span><span id="profile-user-language"></span>
+              <span class="regtext">Language: </span><span class="regtext" id="profile-user-language"></span>
               </div>
               
               <div class="row" style="align-items:center;">
-                <span class="regtext">Status: </span><span id="profile-user-status"></span>
+                <span class="regtext">Status: </span><span class="regtext" id="profile-user-status"></span>
               </div>
               
             </div>
@@ -160,7 +160,7 @@
                   <input id="friend-search-text" class="field" type="text" autocomplete="off" placeholder="Search by email">
                   <br>
                   <button id="friend-search-button" class="sixft-button">
-                    Search
+                    Add
                   </button>
                 </div>
             
@@ -190,14 +190,47 @@
                 
               </div>
               <div id="friends-right">
-                
+                <h1>
+                  Friend List
+                </h1>
+                <div id="friend-list-div">
+                  <div class="friend">
+                    <p>
+                      Friend Name (Friend Email)
+                    </p>
+                    <div>
+                      
+                    </div>
+                    <button>
+                      ❌
+                    </button>
+                  </div>
+                  <hr>
+                </div>
               </div>
             </div>
             <!-- End of FRIEND PAGE -->
             
             <!-- INTERACTIONS PAGE -->
             <div id="interactions-page" class="page">
-              
+                <div id="interactions-left">
+                  <div id="log-interactions-div">
+                    <h1 id="interactions-log-header" class="regtext">
+                      Interactions log
+                    </h1>
+                    <h2>
+                      Who did you interact with today?
+                    </h2>
+                    <select id="friend-interactions"></select>
+                </div>
+                <div id="interactinos-right">
+                  <div id="interactions-history-div">
+                    <h1 class="regtext">
+                      Interactions history
+                    </h1>
+                  </div>
+                </div>
+              </div>
             </div>
             <!-- End of INTERACTIONS PAGE -->
           </div>
