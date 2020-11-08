@@ -116,7 +116,7 @@ socket.on("new-user-response", (data) => {
         break;
     }
       
-    console.log("error: " + reason)
+    //console.log("error: " + reason)
     //error messsages --------
   }
 })
@@ -138,7 +138,7 @@ document.getElementById("friend-search-button").addEventListener("click",() => {
 	user : user.email,
 	friend : document.getElementById('friend-search-text').value
 });
-  console.log(document.getElementById('friend-search-text').value);
+  //console.log(document.getElementById('friend-search-text').value);
 })
 
 document.getElementById("status-button").addEventListener("click",() => {
@@ -223,8 +223,8 @@ function updateFRContent(friend_requests){
   $(".friend-request-accept-button").each( function() {
     this.addEventListener("click", () => {
       let friend = document.getElementById("friend-request-name" + this.id[this.id.length-1]).innerHTML.trim();
-      console.log('user: ' + user.email)
-      console.log('friend: ' + friend);
+      //console.log('user: ' + user.email)
+      //console.log('friend: ' + friend);
       socket.emit('accept-friend-request', {
         friend : friend, 
         user : user.email
@@ -235,8 +235,8 @@ function updateFRContent(friend_requests){
   $(".friend-request-reject-button").each( function() {
     this.addEventListener("click", () => {
       let friend = document.getElementById("friend-request-name" + this.id[this.id.length-1]).innerHTML.trim();
-      console.log('user: ' + user.email)
-      console.log('friend: ' + friend);
+      //console.log('user: ' + user.email)
+      //console.log('friend: ' + friend);
       socket.emit('reject-friend-request', {
         friend : friend, 
         user : user.email
@@ -271,7 +271,7 @@ socket.on('push_data', (data) => {
 
 //response from server after sending a friend request
 socket.on('friend-request-response', (data) => {
-  console.log("friend request response: " + data.toString())
+  //console.log("friend request response: " + data.toString())
   if(data === true){
     document.getElementById("friend-search-text").value = "";
     $('#friend-search-error-div').hide()
@@ -299,12 +299,12 @@ socket.on('friend-request-resolution', (data) => {
 
 
 socket.on('response-friend-list-HTML', (data) => {
-  console.log(data);
+  //console.log(data);
   document.getElementById("friend-list-div").innerHTML = data;
 })
 
 socket.on("response-interactions-history-HTML", (data) => {
-  console.log(data);
+  //console.log(data);
   document.getElementById("interactions-history-content").innerHTML = data;
   //updateData(user);
 })
@@ -361,7 +361,7 @@ function generateFriendRequestHTML(friend_requests){
       </div>
     */
   }
-  console.log(output);
+  //console.log(output);
   return output;
 }
 
@@ -376,7 +376,7 @@ function generateInteractionsDropdown(friends){
     output += h;
   }
   
-  console.log(output);
+  //console.log(output);
   return output;
 }
 

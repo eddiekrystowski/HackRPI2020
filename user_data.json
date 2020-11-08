@@ -1,3 +1,75 @@
 {
-
+  "urookim@gmail.com": {
+    "email": "urookim@gmail.com",
+    "name": "SixFT-EN",
+    "password": "password",
+    "friends": [
+      "urookim2@gmail.com",
+      "urookim3@gmail.com"
+    ],
+    "friend_requests": [],
+    "interactions": [],
+    "language": "en",
+    "status": "safe",
+    "profile_picture": "https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon-cow.png?v=1604823476482"
+  },
+  "urookim2@gmail.com": {
+    "email": "urookim2@gmail.com",
+    "name": "SixFT-ES",
+    "password": "password",
+    "friends": [
+      "urookim@gmail.com",
+      "urookim3@gmail.com"
+    ],
+    "friend_requests": [],
+    "interactions": [
+      {
+        "time": "Sun Nov 08 2020",
+        "user": "urookim3@gmail.com"
+      }
+    ],
+    "language": "es",
+    "status": "safe",
+    "profile_picture": "https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon-cia.png?v=1604821362427"
+  },
+  "urookim3@gmail.com": {
+    "email": "urookim3@gmail.com",
+    "name": "SixFT-2",
+    "password": "password",
+    "friends": [
+      "urookim@gmail.com",
+      "urookim2@gmail.com"
+    ],
+    "friend_requests": [],
+    "interactions": [],
+    "language": "en",
+    "status": "safe",
+    "profile_picture": "https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon-halo%20(1).png?v=1604813454785"
+  },
+  "eddiekrystowski@gmail.com": {
+    "email": "eddiekrystowski@gmail.com",
+    "name": "Eddie",
+    "password": "123456",
+    "friends": [
+      "test@example.com"
+    ],
+    "friend_requests": [],
+    "interactions": [],
+    "language": "en",
+    "status": "safe",
+    "profile_picture": "https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon%20(1).png?v=1604780268903"
+  },
+  "test@example.com": {
+    "email": "test@example.com",
+    "name": "Test User",
+    "password": "123456",
+    "friends": [
+      "eddiekrystowski@gmail.com"
+    ],
+    "friend_requests": [],
+    "interactions": [],
+    "language": "en",
+    "status": "safe",
+    "profile_picture": "https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon%20(1).png?v=1604780268903"
+  }
 }

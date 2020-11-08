@@ -468,9 +468,6 @@ function generateFriendListHTML(friends) {
         </p>
         <div style="background-color:${getStatusColor(user_data[friend].status)};">
         </div>
-        <button id="friend-remove-button${i}">
-          ❌
-        </button>
       </div>
       <hr>
     `
