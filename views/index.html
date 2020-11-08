@@ -48,7 +48,7 @@
           <span class="field">Email: </span><input id="login-email" type="text" class="field" autocomplete="off" placeholder="Enter your email">
         </div>
         <div class="row">
-          <span class="field">Password: </span><input id="login-password" type="text" class="field" autocomplete="off" placeholder="Enter your password">
+          <span class="field">Password: </span><input id="login-password" type="password" class="field" autocomplete="off" placeholder="Enter your password">
         </div>
         <div id="login-error-div" class="error">
           <h1>
@@ -92,12 +92,13 @@
         </div>
         
         <div class="row">
-          <span class="field">Password: </span><input id="signup-password" type="text" class="field" autocomplete="off" placeholder="Enter a strong password">
+          <span class="field">Password: </span><input id="signup-password" type="password" class="field" autocomplete="off" placeholder="Enter a strong password">
         </div>
         
         <div class="row">
-          <span class="field">Confirm password: </span><input id="signup-confirm" type="text" class ="field" autocomplete="off" placeholder="Confirm password">
+          <span class="field">Confirm password: </span><input id="signup-confirm" type="password" class ="field" autocomplete="off" placeholder="Confirm password">
         </div>
+        <span id="signup-notice">** note: please do not use a password you use anywhere else, this website is not secure **</span>
       </div>
       <div id="signup-error-div" class="error">
         <h1 id="signup-error-message">error</h1>
@@ -113,7 +114,7 @@
       <div id="content">
         <div id="main-header">
           <div id="profile-button">
-            <img class="home-img" src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon%20(1).png?v=1604780268903">
+            <img class="home-img user-profile-picture">
           </div>
           <div id="status-button" class="regtext">
             Status
@@ -138,22 +139,23 @@
             <div id="profile-page" class="page">
               <div class="row" style="align-items:center;">
                 <span class="regtext" id="profile-user-display_name"></span>
+                <div id="pfp-select-button"><img id="pfp-select-image" src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2Fmenu-button.png?v=1604775851053"></div>
             </div>
               <div id="profile-top">
-                <img id="profile-img" src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon%20(1).png?v=1604780268903">
+                <img id="profile-img" class="user-profile-picture">
                 <p id="profile-user-display"></p>
               </div>
               <div class="row" style="align-items:center;">
-                <span class="regtext">Email: </span><span class="regtext" id="profile-user-email"></span>
+                <span class="regtext small">Email: </span><span class="regtext small" id="profile-user-email"></span>
               </div>
               
               <div class="row" style="align-items:center;">
                 <!-- LET USER CHANGE LANGUAGE -->
-              <span class="regtext">Language: </span><span class="regtext" id="profile-user-language"></span>
+              <span class="regtext small">Language: </span><span class="regtext small" id="profile-user-language"></span>
               </div>
               
               <div class="row" style="align-items:center;">
-                <span class="regtext">Status: </span><span class="regtext" id="profile-user-status"></span>
+                <span class="regtext small">Status: </span><span class="regtext small" id="profile-user-status"></span>
               </div>
               
             </div>
@@ -210,6 +212,7 @@
                   Friend List
                 </h1>
                 <div id="friend-list-div">
+                  <!--
                   <div class="friend">
                     <p>
                       Friend Name (Friend Email)
@@ -222,6 +225,7 @@
                     </button>
                   </div>
                   <hr>
+                  -->
                 </div>
               </div>
             </div>
@@ -251,14 +255,45 @@
                   <h1>
                     Interactions History
                   </h1>
+                  <div id="interactions-history-content">
+                    <!--
+                    <div class="interaction">
+                      <div class="i-color">
+                        
+                      </div>
+                      <div class="i-text">
+                        COLOR Interacted with EMAIL on DATE
+                      </div> 
+                    </div>
+                    <hr>
+                    -->
+                  </div>
                 </div>
               </div>
             </div>
             <!-- End of INTERACTIONS PAGE -->
+            
+            <!---- PROFILE PIC SELECT SCREEN --->
+            <div id="pfp-select-page" class="page">
+              <div id="pfp-select-top">
+                <div class="pfp" id="default-pfp-button"><img src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon%20(1).png?v=1604780268903"></div>
+                <div class="pfp" id="ninja-pfp-button"><img src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon-ninja%20(1).png?v=1604819233588"></div>
+                <div class="pfp" id="cia-pfp-button"><img src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon-cia.png?v=1604821362427"></div>
+              </div>
+              <div id="pfp-select-bottom">
+                <div class="pfp" id="cow-pfp-button"><img src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon-cow.png?v=1604823476482"></div>
+                <div class="pfp" id="royal-pfp-button"><img src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon%20(2).png?v=1604813251170"></div>
+                <div class="pfp" id="fancy-pfp-button"><img src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon-fancy%20(1).png?v=1604799697339"></div>
+              </div>
+              <div id="pfp-select-bottom-bottom">
+                <div class="pfp" id="red-pfp-button"><img src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2Fgreen-icon%20(1).png?v=1604799767748"></div>
+                <div class="pfp" id="green-pfp-button"><img src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2Fred-icon%20(1).png?v=1604799883379"></div>
+                <div class="pfp" id="halo-pfp-button"><img src="https://cdn.glitch.com/9f24f09a-2979-4ff2-a617-6e008384bac3%2F6ft_icon-halo%20(1).png?v=1604813454785"></div>
+              </div>            
+            </div>
           </div>
         </div>
       </div>
-      
     </div>
     <!-- End of MAIN SCREEN -->
   </body>
